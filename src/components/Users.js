@@ -10,9 +10,11 @@ const DUMMY_USERS = [
 ];
 
 toggleUsersHandler(){
+  
   this.setState((curState) => {
     return {showUsers: !curState.showUsers};
 });
+}
  class Users extends Component {
   render() {
     return (
