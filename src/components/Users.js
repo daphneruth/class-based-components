@@ -1,4 +1,4 @@
-import { Component, useState } from 'react';
+import { Component } from 'react';
 import User from './User';
 
 import classes from './Users.module.css';
@@ -12,7 +12,7 @@ const DUMMY_USERS = [
 
  class Users extends Component {
   constructor (){
-    
+    super();
     this.state = {
       showUsers:true,
       more:'test',
@@ -43,10 +43,10 @@ render(){
 
   return (
     <div className={classes.users}>
-      <button onClick={toggleUsersHandler}>
-        {showUsers ? 'Hide' : 'Show'} Users
+      <button onClick={this.toggleUsersHandler.bind(this)}>
+        {this.state.showUsers ? 'Hide' : 'Show'} Users
       </button>
-      {showUsers && usersList}
+      {this.state.showUsers && usersList}
     </div>
   );
 };
