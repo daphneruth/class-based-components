@@ -8,6 +8,11 @@ const DUMMY_USERS = [
   { id: 'u2', name: 'Manuel' },
   { id: 'u3', name: 'Julie' },
 ];
+
+toggleUsersHandler(){
+  this.setState((curState) => {
+    return {showUsers: !curState.showUsers};
+});
  class Users extends Component {
   render() {
     return (
@@ -37,5 +42,5 @@ const DUMMY_USERS = [
     </ul>
   );
 
-      }
+      
 export default Users;
