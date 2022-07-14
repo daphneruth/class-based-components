@@ -9,25 +9,22 @@ const DUMMY_USERS = [
   { id: 'u3', name: 'Julie' },
 ];
 
-toggleUsersHandler(){
-  super();
-  this.setState((curState) => {
-    return {showUsers: !curState.showUsers};
-});
-}
+
  class Users extends Component {
-  render() {
-    return (
-      <div className={classes.users}>
-        <button onClick={toggleUsersHandler}>
-          {showUsers ? 'Hide' : 'Show'} Users
-        </button>
-        {showUsers && usersList}
-      </div>
-    );
-  };
-  
+  constructor (){
+    
+    this.state = {
+      showUsers:true,
+      more:'test',
+    };
   }
+  toggleUsersHandler() {
+    
+    this.setState((curState) => {
+      return {showUsers: !curState.showUsers};
+  });
+  }
+  
  
 //const Users = () => {
  // const [showUsers, setShowUsers] = useState(true);
@@ -35,7 +32,7 @@ toggleUsersHandler(){
 //  const toggleUsersHandler = () => {
 //    setShowUsers((curState) => !curState);
   //};
-
+render(){
   const usersList = (
     <ul>
       {DUMMY_USERS.map((user) => (
@@ -44,5 +41,16 @@ toggleUsersHandler(){
     </ul>
   );
 
+  return (
+    <div className={classes.users}>
+      <button onClick={toggleUsersHandler}>
+        {showUsers ? 'Hide' : 'Show'} Users
+      </button>
+      {showUsers && usersList}
+    </div>
+  );
+};
+
+}
       
 export default Users;
