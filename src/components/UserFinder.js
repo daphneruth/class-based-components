@@ -3,12 +3,12 @@ import { Fragment, useState, useEffect } from 'react';
 import Users from './Users';
 
 const UserFinder = () => {
-  const [filteredUsers, setFilteredUsers] = useState(DUMMY_USERS);
+  const [filteredUsers, setFilteredUsers] = useState(this.props.users);
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     setFilteredUsers(
-      DUMMY_USERS.filter((user) => user.name.includes(searchTerm))
+      this.props.users.filter((user) => user.name.includes(searchTerm))
     );
   }, [searchTerm]);
 
