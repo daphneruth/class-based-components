@@ -15,11 +15,13 @@ class UserFinder extends Component {
     constructor() {
         super();
         this.state = {
-            filteredUsers:DUMMY_USERS,
+            filteredUsers:[],
             searchTerm:'',
         }
     }
-
+  ComponentDidMount(){
+    this.state({filteredUsers: DUMMY_USERS})
+  }
 
 //const UserFinder = () => {
   //const [filteredUsers, setFilteredUsers] = useState(this.props.users);
@@ -27,13 +29,12 @@ class UserFinder extends Component {
 
   //useEffect(() => {
     //setFilteredUsers(
+
       ComponentDidUpdate(prevProps, prevState) {
         if(prevState.searchTerm !== this.state.searchTerm){
-
-        
-    this.state({
-    filteredUsers:DUMMY_USERS.filter((user) =>
-     user.name.includes(this.state.searchTerm)
+            this.state({
+              filteredUsers:DUMMY_USERS.filter((user) =>
+               user.name.includes(this.state.searchTerm)
      ),
     })
 }
