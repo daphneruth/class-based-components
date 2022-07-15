@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from 'react';
+import { Fragment,} from 'react';
 import { Component } from 'react/cjs/react.production.min';
 
 import Users from './Users';
@@ -19,40 +19,42 @@ class UserFinder extends Component {
             searchTerm:'',
         }
     }
-  ComponentDidMount(){
+  componentDidMount(){
     this.state({filteredUsers: DUMMY_USERS})
   }
 
-//const UserFinder = () => {
+//UserFinder = () => {
   //const [filteredUsers, setFilteredUsers] = useState(this.props.users);
   //const [searchTerm, setSearchTerm] = useState('');
 
   //useEffect(() => {
     //setFilteredUsers(
 
-      ComponentDidUpdate(prevProps, prevState) {
+      componentDidUpdate(prevProps, prevState) {
         if(prevState.searchTerm !== this.state.searchTerm){
             this.state({
               filteredUsers:DUMMY_USERS.filter((user) =>
                user.name.includes(this.state.searchTerm)
      ),
     })
-}
+   }   
   }
 
 
-   searchChangeHandler = (event) => {
-    setSearchTerm({searchTerm:event.target.value});
-  };
-render() {
+   searchChangeHandler (event) {
+    this.setState ({searchTerm:event.target.value});
+ };
+
+ render() {
   return (
     <Fragment>
-      <input type='search' onChange={searchChangeHandler} />
-      <Users users={filteredUsers} />
+      <input type='search' onChange={this.searchChangeHandler} />
+      <Users users={this.filteredUsers} />
     </Fragment>
   );
 } 
 
 };
+
 
 export default UserFinder;
