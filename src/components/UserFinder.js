@@ -13,15 +13,16 @@ const UserFinder = () => {
   }, [searchTerm]);
 
   const searchChangeHandler = (event) => {
-    setSearchTerm(event.target.value);
+    setSearchTerm({searchTerm:event.target.value});
   };
-
+render() {
   return (
     <Fragment>
       <input type='search' onChange={searchChangeHandler} />
       <Users users={filteredUsers} />
     </Fragment>
   );
+} 
 };
 
 export default UserFinder;
