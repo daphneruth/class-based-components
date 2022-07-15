@@ -1,16 +1,33 @@
 import { Fragment, useState, useEffect } from 'react';
+import { Component } from 'react/cjs/react.production.min';
 
 import Users from './Users';
 
-const UserFinder = () => {
-  const [filteredUsers, setFilteredUsers] = useState(this.props.users);
-  const [searchTerm, setSearchTerm] = useState('');
+class UserFinder extends Component {
+    constructor() {
+        this.state = {
+            filteredUsers:DUMMY_USERS,
+            searchTerm:'',
+        }
+    }
 
-  useEffect(() => {
-    setFilteredUsers(
-      this.props.users.filter((user) => user.name.includes(searchTerm))
-    );
-  }, [searchTerm]);
+
+//const UserFinder = () => {
+  //const [filteredUsers, setFilteredUsers] = useState(this.props.users);
+  //const [searchTerm, setSearchTerm] = useState('');
+
+  //useEffect(() => {
+    //setFilteredUsers(
+      ComponentDidUpdate(prevProps, prevState) {
+        
+    this.state({
+    filteredUsers:DUMMY_USERS.filter((user) =>
+     user.name.includes(searchTerm)
+     ),
+    })
+    
+  }
+
 
   const searchChangeHandler = (event) => {
     setSearchTerm({searchTerm:event.target.value});
@@ -23,6 +40,7 @@ render() {
     </Fragment>
   );
 } 
+
 };
 
 export default UserFinder;
